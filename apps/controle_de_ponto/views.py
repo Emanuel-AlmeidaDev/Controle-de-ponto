@@ -47,6 +47,7 @@ def cadastro_saida(request):
             try:
                 registro = Register.objects.get(rfid=form.cleaned_data['rfid'], horario_saida=None)
                 registro.horario_saida = form.cleaned_data['horario_saida']
+                registro.servico = form.cleaned_data['servico']
                 registro.save()
                 messages.success(request, 'Saída cadastrada com sucesso!')
             except:
